@@ -1,1 +1,45 @@
-<p>utilisateur-list works!</p>
+<div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between h-full">
+  <div>
+    <div class="flex justify-between items-center mb-5">
+      <div>
+        <h2 class="text-base font-semibold text-slate-900">Utilisateurs</h2>
+        <p class="text-xs text-slate-500">{{ utilisateurs.length }} enregistrés</p>
+      </div>
+      <button (click)="chargerUtilisateurs()" title="Actualiser"
+              class="inline-flex items-center gap-1.5 text-xs font-medium text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200/80 px-3 py-1.5 rounded-lg transition-colors">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+        Actualiser
+      </button>
+    </div>
+
+    <div class="overflow-hidden border border-slate-100 rounded-xl">
+      <div class="max-h-[220px] overflow-y-auto">
+        <table class="w-full text-left border-collapse text-xs">
+          <thead class="sticky top-0 bg-slate-50/90 backdrop-blur border-b border-slate-100 text-slate-500 font-semibold uppercase">
+          <tr>
+            <th class="py-2.5 px-3">ID</th>
+            <th class="py-2.5 px-3">Nom</th>
+            <th class="py-2.5 px-3">Email</th>
+          </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            @for (user of utilisateurs; track $index){
+              <tr class="hover:bg-slate-50/60 transition-colors">
+                <td class="py-2.5 px-3 font-mono font-medium text-slate-400">#{{ user.id }}</td>
+                <td class="py-2.5 px-3 font-medium text-slate-800">{{ user.nom }}</td>
+                <td class="py-2.5 px-3 text-slate-500 truncate max-w-[120px]">{{ user.email }}</td>
+              </tr>
+            }
+            @if (utilisateurs.length === 0){
+              <tr>
+                <td colspan="3" class="py-8 text-center text-slate-400">
+                  Aucun utilisateur trouvé
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

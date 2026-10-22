@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@XmlRootElement(name = "GetCategorieCompteRequest", namespace = "http://example.com/soap/compte")
+@XmlRootElement(name = "getCategorieCompteRequest", namespace = "http://example.com/soap/compte")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class GetCategorieCompteRequest {
     private Double solde;

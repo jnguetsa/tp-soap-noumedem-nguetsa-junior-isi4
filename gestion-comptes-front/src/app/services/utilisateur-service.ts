@@ -1,10 +1,13 @@
-import { inject, Service } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Utilisateur } from '../modele/utilisateur';
 
-@Service()
-export class Utilisateur {
-  private apiUrl: string = 'http://localhost:8080/api/utilisateurs';
+@Injectable({
+  providedIn: 'root',
+})
+export class UtilisateurService {
+  private apiUrl = 'http://localhost:8080/api/utilisateurs';
   private http = inject(HttpClient);
 
   getAll(): Observable<Utilisateur[]> {

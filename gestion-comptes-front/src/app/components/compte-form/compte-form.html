@@ -1,1 +1,52 @@
-<p>compte-form works!</p>
+<div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between h-full">
+  <div>
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-9 h-9 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+      </div>
+      <div>
+        <h2 class="text-base font-semibold text-slate-900">Ajouter un compte</h2>
+        <p class="text-xs text-slate-500">Associer un compte bancaire</p>
+      </div>
+    </div>
+
+    <form (ngSubmit)="enregistrer()" class="space-y-3.5">
+      <div class="grid grid-cols-2 gap-3">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">ID Utilisateur</label>
+          <input type="number" [(ngModel)]="utilisateurId" name="utilisateurId" required placeholder="Ex: 1"
+                 class="w-full px-3.5 py-2 text-sm bg-slate-50/50 border border-slate-200 rounded-xl focus:bg-white focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 focus:outline-none transition-all">
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Type Compte</label>
+          <select [(ngModel)]="compte.typeCompte" name="typeCompte" required
+                  class="w-full px-3 py-2 text-sm bg-slate-50/50 border border-slate-200 rounded-xl focus:bg-white focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 focus:outline-none transition-all">
+            <option value="" disabled selected>Choisir</option>
+            <option value="COURANT">Courant</option>
+            <option value="EPARGNE">Épargne</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Numéro de Compte</label>
+        <input type="text" [(ngModel)]="compte.numeroCompte" name="numeroCompte" placeholder="Ex: FR76-1234-..." required
+               class="w-full px-3.5 py-2 text-sm bg-slate-50/50 border border-slate-200 rounded-xl focus:bg-white focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 focus:outline-none transition-all placeholder:text-slate-400">
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1">Solde Initial</label>
+        <div class="relative">
+          <input type="number" [(ngModel)]="compte.solde" name="solde" required placeholder="0.00"
+                 class="w-full pl-3.5 pr-8 py-2 text-sm bg-slate-50/50 border border-slate-200 rounded-xl focus:bg-white focus:ring-4 focus:ring-blue-500/10 focus:border-blue-600 focus:outline-none transition-all">
+          <span class="absolute right-3 top-2 text-sm font-medium text-slate-400">€</span>
+        </div>
+      </div>
+
+      <button type="submit"
+              class="w-full mt-1 bg-slate-900 hover:bg-slate-800 active:scale-[0.99] text-white text-sm font-medium py-2.5 px-4 rounded-xl transition-all">
+        Créer le compte
+      </button>
+    </form>
+  </div>
+</div>

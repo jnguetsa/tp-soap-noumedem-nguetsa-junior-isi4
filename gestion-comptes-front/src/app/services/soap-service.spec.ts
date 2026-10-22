@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { Utilisateur } from './utilisateur';
+import { SoapService } from './soap-service';
 
-describe('Utilisateur', () => {
-  let service: Utilisateur;
+describe('SoapService', () => {
+  let service: SoapService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(Utilisateur);
+    service = TestBed.inject(SoapService);
   });
 
   it('should be created', () => {

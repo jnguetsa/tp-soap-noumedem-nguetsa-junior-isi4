@@ -1,1 +1,32 @@
-<p>utilisateur-form works!</p>
+<div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm flex flex-col justify-between h-full">
+  <div>
+    <div class="flex items-center gap-3 mb-6">
+      <div class="w-9 h-9 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/></svg>
+      </div>
+      <div>
+        <h2 class="text-base font-semibold text-slate-900">Nouvel utilisateur</h2>
+        <p class="text-xs text-slate-500">Ajouter un nouveau client au système</p>
+      </div>
+    </div>
+
+    <form (ngSubmit)="enregistrer()" class="space-y-4">
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Nom complet</label>
+        <input type="text" [(ngModel)]="utilisateur.nom" name="nom" required placeholder="Ex: Jean Dupont"
+               class="w-full px-3.5 py-2.5 text-sm bg-slate-50/50 border border-slate-200 rounded-xl focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 focus:outline-none transition-all placeholder:text-slate-400">
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Adresse Email</label>
+        <input type="email" [(ngModel)]="utilisateur.email" name="email" required placeholder="jean.dupont@example.com"
+               class="w-full px-3.5 py-2.5 text-sm bg-slate-50/50 border border-slate-200 rounded-xl focus:bg-white focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-600 focus:outline-none transition-all placeholder:text-slate-400">
+      </div>
+
+      <button type="submit"
+              class="w-full mt-2 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] text-white text-sm font-medium py-2.5 px-4 rounded-xl shadow-sm shadow-indigo-200 transition-all">
+        Créer l'utilisateur
+      </button>
+    </form>
+  </div>
+</div>

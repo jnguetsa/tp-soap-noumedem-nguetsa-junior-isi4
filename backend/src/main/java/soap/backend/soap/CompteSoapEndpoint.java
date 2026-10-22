@@ -7,12 +7,11 @@ import soap.backend.dto.GetCategorieCompteResponse;
 @Endpoint
 public class CompteSoapEndpoint {
     private static final String NAMESPACE_URI = "http://example.com/soap/compte";
+
     @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCategorieCompteRequest")
     @ResponsePayload
-    public GetCategorieCompteResponse getCategorieCompte(@RequestPayload GetCategorieCompteRequest request)
-    {
-        GetCategorieCompteResponse response = new
-                GetCategorieCompteResponse();
+    public GetCategorieCompteResponse getCategorieCompte(@RequestPayload GetCategorieCompteRequest request) {
+        GetCategorieCompteResponse response = new GetCategorieCompteResponse();
         double solde = request.getSolde();
         if (solde < 100000) {
             response.setCategorie("STANDARD");
@@ -26,5 +25,4 @@ public class CompteSoapEndpoint {
         }
         return response;
     }
-        }
-
+}
